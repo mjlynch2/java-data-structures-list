@@ -15,14 +15,12 @@ public class ArrayList {
         arrayList[index] = numToAdd;
         // increment the index
         index++;
-
         // how full is our list?
         double percentFull = index / arrayList.length;
         // if list capacity 70% or more, double the size of the list
         if (percentFull >= 0.70) {
             expandArrayList(arrayList.length);
         }
-        System.out.println(arrayList[0]);
     }
 
     public void expandArrayList(int currentLength){
@@ -31,7 +29,13 @@ public class ArrayList {
         // double the current length
         arrayList = new Object[currentLength * 2];
         System.arraycopy(arrayListCopy, 0, arrayList, 0, currentLength);
-        System.out.println(arrayList);
+    }
+
+    public void printList(){
+        System.out.println("Printing the list: ");
+        for(int i = 0; i < index; i++) {
+            System.out.println(arrayList[i]);
+        }
     }
 }
 

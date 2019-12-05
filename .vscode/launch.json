@@ -6,6 +6,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - HelloWorld",
+            "request": "launch",
+            "mainClass": "HelloWorld"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - arrayListTest",
             "request": "launch",
             "mainClass": "arrayListTest"
