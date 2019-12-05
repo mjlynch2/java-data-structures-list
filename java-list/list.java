@@ -3,8 +3,9 @@ public class ArrayList {
     private int initialLength = 5;
     // initial current index
     private int index = 0;
-    // 
-
+    // how full is our list?
+    double percentFull = index / maxLength;
+    
     private Object[] arrayList;
 
     // create a list with the default length of five;
@@ -14,16 +15,22 @@ public class ArrayList {
 
     public void add(Int numToAdd){
         arrayList[index] = numToAdd;
+        // increment the index
+        index++;
+        // if list capacity 70% or more, double the size of the list
+        if (percentFull >= 0.70) {
+            expandArrayList(arrayList.length);
+        }
+
     }
 
     public void expandArrayList(int currentLength){
+        // copy the contents of the current list into a temporary list
         arrayListCopy = arrayList.clone();
+        // double the current length
         arrayList = new Object[currentLength * 2];
-        // how full is our list?
-        double percentFull = index / maxLength;
-        // if it's 70% or more, double the size of the list
-        if(percentFull >= 0.70 ){
 
-        }
+        // how full is our list?
+
     }
 }
