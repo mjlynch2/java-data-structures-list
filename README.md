@@ -1,7 +1,7 @@
 # java-data-structures-list
 My own implementation of an array list in java
 
-** Methods **
+## Methods ##
 * add(int value) -- add an integer to the list, starting at index zero, increasing sequentially
 * get(int index) -- return the value at the given index
 * size() -- return the size of the list
