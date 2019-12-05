@@ -1,47 +1,83 @@
 public class ArrayList {
     // initial length of the list
-    private int initialLength = 5;
+    private static int initialLength = 5;
     // initial current index
-    private int index = 0;
-    
-    private Object[] arrayList, arrayListCopy;
+    private static int index = 0;
+
+    private static Object[] arrayList, arrayListCopy;
 
     // create a list with the default length of five;
-    public ArrayList(){
+    public ArrayList() {
         arrayList = new Object[initialLength];
     }
 
-    public void add(int numToAdd){
-        arrayList[index] = numToAdd;
-        // increment the index
-        index++;
-        // how full is our list?
-        double percentFull = index / arrayList.length;
-        // if list capacity 70% or more, double the size of the list
+    // If the list is 70% full or more, return true, otherwise return false.
+    private boolean isListAlmostFull() {
+        double indexDouble = index;
+        double length = arrayList.length;
+        double percentFull = indexDouble / length;
         if (percentFull >= 0.70) {
-            expandArrayList(arrayList.length);
+            return true;
+        } else {
+            return false;
         }
     }
 
-    public void expandArrayList(int currentLength){
+    // Double the lenght of the list
+    private void expandArrayList(int currentLength) {
         // copy the contents of the current list into a temporary list
         arrayListCopy = arrayList.clone();
         // double the current length
         arrayList = new Object[currentLength * 2];
-        System.arraycopy(arrayListCopy, 0, arrayList, 0, currentLength);
+        for (int i = 0; i < arrayListCopy.length; i++) {
+            arrayList[i] = arrayListCopy[i];
+        }
+    }
+
+    // add integers to the list
+    void add(int numToAdd) {
+        arrayList[index] = numToAdd;
+        // increment the index
+        index++;
+        if (isListAlmostFull()) {
+            expandArrayList(arrayList.length);
+            System.out.println("doubling the length");
+        }
     }
 
     // Print the whole list
-    public void printList(){
+    void printList() {
         System.out.println("Printing the list: ");
-        for(int i = 0; i < index; i++) {
+        for (int i = 0; i < index; i++) {
             System.out.println(arrayList[i]);
         }
     }
 
     // Get the value at the specified index
-    public void get(int i) {
-        System.out.println("Value at" + i + ":" + arrayList[i]);
+    int get(int i) {
+        System.out.println("Value at " + i + ": " + arrayList[i]);
+        return (int) arrayList[i];
     }
-}
 
+    // Get the size of the list
+    void size() {
+        System.out.println(index);
+    }
+
+    // Replace the value at a specified index with the new value
+    void set(int i, int value) {
+        arrayList[i] = value;
+    }
+
+    boolean includes(int value) {
+        for (int i = 0; i < index; i++) {
+            int valueToCheck = (int) arrayList[i];
+            if (valueToCheck == value) {
+                System.out.println(value + " found at index " + i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+}

@@ -9,8 +9,11 @@ public class ArrayListTest {
         testList.add(9);
         testList.add(8);
         testList.add(7);
-        // mArrayList.delete("123");
+        testList.get(1);
+        testList.size();
+        testList.set(0, 12);
+        testList.get(0);
+        System.out.println(testList.includes(4));
         testList.printList();
-        testList.get(2);
     }
 }
