@@ -31,11 +31,17 @@ public class ArrayList {
         System.arraycopy(arrayListCopy, 0, arrayList, 0, currentLength);
     }
 
+    // Print the whole list
     public void printList(){
         System.out.println("Printing the list: ");
         for(int i = 0; i < index; i++) {
             System.out.println(arrayList[i]);
         }
+    }
+
+    // Get the value at the specified index
+    public void get(int i) {
+        System.out.println("Value at" + i + ":" + arrayList[i]);
     }
 }
 

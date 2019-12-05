@@ -11,5 +11,6 @@ public class ArrayListTest {
         testList.add(7);
         // mArrayList.delete("123");
         testList.printList();
+        testList.get(2);
     }
 }
