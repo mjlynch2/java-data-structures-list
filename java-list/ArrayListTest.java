@@ -14,6 +14,7 @@ public class ArrayListTest {
         testList.set(0, 12);
         testList.get(0);
         System.out.println(testList.includes(4));
+        System.out.println(testList.includes(12));
         testList.printList();
     }
 }
